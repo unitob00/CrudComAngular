@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div ng-controller="crudCtrl">
+
+	<div class="divList">
+
+		<p>
+			<b><i>Todos os Produtos Cadastrados</i></b>
+		</p>
+
+		<table class="table table-hover">
+			<tr>
+				<td><b>Id</b></td>
+				<td><b>Descrição</b></td>
+				<td><b>Preço</b></td>
+				<td><b>Quantidade</b></td>
+				<td><b>Marca</b></td>
+			
+			</tr>
+
+			<tr ng-repeat="produto in produtos">
+				<td>
+					{{ produto.id }}
+				</td>
+
+				<td>
+					{{ produto.Descricao }}
+				</td>
+
+				<td>
+					{{ produto.Preco }}
+				</td>
+
+				<td>
+					{{ produto.Quantidade }}
+				</td>
+
+				<td>
+					{{ produto.Marca }}
+				</td>
+
+				<td>
+					<span ng-click="obterPorId(produto)" class="btn btn-primary">Alterar</span>
+					<span ng-click="excluirProduto(produto)" class="btn btn-danger">Excluir</span>
+				</td>
+
+			</tr>
+
+		</table>
+
+
+		</div>
+
+		<span ng-click="incluirProdutoDiv()" class="btn btn-default">Incluir produto</span>
+
+	<div ng-show="divProduto">
+		<p class="divHead"></p>
+		<table class="table">
+			<tr>
+				<td><b><i>{{Acao}}Produto</i></b></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><b>Id</b></td>
+				<td>
+					<input type="text" disabled="disabled" ng-model="produtoid" class="form-control" />
+				</td>
+				<td><b>Descrição</b></td>
+				<td>
+					<input type="text" ng-model="Descricao" class="form-control" />
+				</td>
+			</tr>
+			<tr>
+				<td><b>Preço</b></td>
+				<td>
+					<input type="text" ng-model="Preco" class="form-control" />
+				</td>
+				<td><b>Quantidade</b></td>
+				<td>
+					<input type="text" ng-model="Quantidade" class="form-control" />
+				</td>
+			</tr>
+			<tr>
+				<td><b>Marca</b></td>
+				<td>
+					<input type="text" ng-model="Marca" class="form-control" />
+				</td>
+
+			</tr>
+			<tr>
+
+				<td></td>
+				<td>
+					<input type="button" class="btn btn-default" value="Salvar" ng-click="AdicionarAtualizarProduto()" />
+					<input type="button" class="btn btn-danger" value="Cancelar" ng-click="Cancelar()" />
+				</td>
+			</tr>
+		</table>
+	</div>
+			
+	
+	</div>
